@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { Navbar } from "../components";
+import { Navbar } from "../../components";
 
 export default {
   title: "Components/Navbar",
@@ -13,4 +13,4 @@ export default {
 
 const Template: ComponentStory<typeof Navbar> = (args) => <Navbar />;
 
-export const NavbarDefault = Template.bind({});
+export const DefaultNavbar = Template.bind({});
