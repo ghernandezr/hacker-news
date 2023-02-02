@@ -1,10 +1,11 @@
 import React from "react";
-import { Routes, Route, Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import { Navbar } from "./components";
 
 const Layout = () => {
   return (
     <div>
-      <div>Navbar</div>
+      <Navbar />
       <div>News | Faves</div>
       <Outlet />
     </div>
