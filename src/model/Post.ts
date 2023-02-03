@@ -1,9 +1,9 @@
 interface Post {
-  author: String;
-  story_title: String;
-  story_url: String;
-  created_at: String;
-  isFaves?: Boolean;
+  author: string;
+  story_title: string;
+  story_url: string;
+  created_at: string;
+  isFaves?: boolean;
 }
 
 export default Post;

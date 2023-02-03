@@ -1,8 +1,7 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { PostCard } from "../../components";
+import { ComponentMeta } from "@storybook/react";
+import { Container, PostCard } from "../../components";
 import Post from "../../model/Post";
-import Container from "../../components/container/Container";
 
 export default {
   title: "Components/PostCard",
@@ -30,6 +29,15 @@ export const DefaultPostCard = () => (
 export const FavesPostCard = () => (
   <Container style={{ margin: 40 }}>
     <PostCard post={{ ...post, isFaves: true }} />
+  </Container>
+);
+
+const bigTitle =
+  "En la actualidad, vivimos en un mundo cada vez más digital y conectado, lo que significa que el aprendizaje también ha evolucionado y cambiado. La tecnología ha abierto nuevas posibilidades para la educación, pero también presenta nuevos desafíos. Es importante tener en cuenta que el aprendizaje en la era digital es fundamental para garantizar que los estudiantes estén preparados para enfrentar los retos del futuro.";
+
+export const FavesPostCardBigTitle = () => (
+  <Container style={{ margin: 40 }}>
+    <PostCard post={{ ...post, story_title: bigTitle, isFaves: true }} />
   </Container>
 );
 
