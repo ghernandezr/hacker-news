@@ -7,6 +7,14 @@
   padding: 0;
   display: flex;
   cursor: pointer;
+  overflow: hidden;
+  gap: 0.5rem;
+}
+
+@media (min-width: 769px) {
+  .post {
+    gap: 1rem;
+  }
 }
 
 .post__link {
@@ -19,8 +27,14 @@
 }
 
 .post__info {
-  padding: 0.87rem 0 0.87rem 1.625rem;
+  padding: 0.87rem 0 0.87rem 0.625rem;
   flex: 1;
+}
+
+@media (min-width: 769px) {
+  .post__info {
+    padding: 0.87rem 0 0.87rem 1.625rem;
+  }
 }
 
 .post__info-time {
@@ -43,6 +57,13 @@
   line-height: 1.43;
   letter-spacing: 0.25px;
   color: var(--brownish-grey);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+  margin-top: 0.438rem;
 }
 
 .post__faves {

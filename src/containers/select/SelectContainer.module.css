@@ -1,0 +1,10 @@
+.select-container {
+  margin-bottom: 2.375rem;
+  width: 100%;
+}
+
+@media (min-width: 415px) {
+  .select-container {
+    max-width: 15rem;
+  }
+}
