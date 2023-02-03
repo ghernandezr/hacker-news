@@ -1,8 +1,8 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import { Navbar } from "./components";
-import Container from "./components/container/Container";
-import Menu from "./containers/menu/Menu";
+
+import { Container, Navbar } from "./components";
+import { Menu } from "./containers";
 
 const Layout = () => {
   return (

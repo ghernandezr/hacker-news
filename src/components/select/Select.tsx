@@ -1,11 +1,11 @@
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import ClickAwayListener from "react-click-away-listener";
 
 import styles from "./Select.module.css";
 
 import ArrowIcon from "./components/ArrowIcon";
 
-interface OptionItem {
+export interface OptionItem {
   label: string;
   value: string;
   image?: string;
@@ -30,6 +30,10 @@ const Select = (props: SelectProps) => {
 
   const [selectedOption, setSelectedOption] =
     useState<OptionItem | undefined>(value);
+
+  useEffect(() => {
+    setSelectedOption(value);
+  }, [value]);
 
   const toggling = () => setIsOpen(!isOpen);
 

@@ -1,8 +1,9 @@
 interface Post {
+  id: string;
   author: string;
-  story_title: string;
-  story_url: string;
-  created_at: string;
+  storyTitle: string;
+  storyUrl: string;
+  createdAt: string;
   isFaves?: boolean;
 }
 
