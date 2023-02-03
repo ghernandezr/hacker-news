@@ -29,17 +29,17 @@ const PostCard = (props: PostCardProps) => {
   };
 
   return (
-    <a className={styles.post__link} target="_blank" href={post.story_url}>
+    <a className={styles.post__link} target="_blank" href={post.storyUrl}>
       <div className={styles.post}>
         <div className={styles.post__info}>
           <div className={styles["post__info-time"]} data-testid="post-info">
             <TimeIcon data-testid="time-icon" />
             <p className={styles["post__info-time-text"]}>{`${DateTime.fromISO(
-              post.created_at
+              post.createdAt
             ).toRelative()} by ${post.author}`}</p>
           </div>
           <p className={styles["post__info-title"]} data-testid="post-title">
-            {post.story_title}
+            {post.storyTitle}
           </p>
         </div>
         <div className={styles.post__faves}>

@@ -4,11 +4,12 @@ import PostCard from "./PostCard";
 import Post from "../../model/Post";
 
 const post: Post = {
+  id: "1",
   author: "scotteric",
-  story_title: "Chinese surveillance balloon spotted over U.S., Pentagon says",
-  story_url:
+  storyTitle: "Chinese surveillance balloon spotted over U.S., Pentagon says",
+  storyUrl:
     "https://www.washingtonpost.com/national-security/2023/02/02/chinese-spy-balloon-pentagon/",
-  created_at: "2023-02-03T01:36:40.000Z",
+  createdAt: "2023-02-03T01:36:40.000Z",
 };
 
 test("renders PostCard component to have time icon", () => {
@@ -43,5 +44,5 @@ test("renders PostCard component to have the post title info", () => {
   const { getByTestId } = render(<PostCard post={post} />);
 
   const PostTitle = getByTestId("post-title");
-  expect(PostTitle.innerHTML).toContain(post.story_title);
+  expect(PostTitle.innerHTML).toContain(post.storyTitle);
 });
