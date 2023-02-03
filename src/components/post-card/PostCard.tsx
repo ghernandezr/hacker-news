@@ -1,11 +1,11 @@
 import React from "react";
 import { DateTime } from "luxon";
 import styles from "./PostCard.module.css";
-import Post from "../../model/Post";
 
 import { ReactComponent as TimeIcon } from "../../assets/images/time.svg";
 import { ReactComponent as FilledFavesIcon } from "../../assets/images/filled-faves.svg";
 import { ReactComponent as EmptyFavesIcon } from "../../assets/images/empty-faves.svg";
+import Post from "../../model/Post";
 
 interface PostCardProps extends React.ComponentPropsWithoutRef<"div"> {
   post: Post;
