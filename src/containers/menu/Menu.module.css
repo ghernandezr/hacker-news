@@ -1,0 +1,35 @@
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 4.375rem auto;
+  max-width: 14rem;
+}
+
+.menu__item {
+  list-style: none;
+  flex: 1;
+}
+
+.menu__item-link {
+  font-family: Roboto;
+  font-size: 1rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.75;
+  letter-spacing: normal;
+  text-align: center;
+  color: #606060;
+  padding: 0.188rem 1rem 0 1.063rem;
+  border-radius: 2px;
+  border: solid 1px #d6d6d6;
+  text-decoration: none;
+  height: 1.938rem;
+  display: block;
+}
+
+.menu__item-link--active {
+  color: var(--azure);
+  border: solid 1px var(--azure);
+}
