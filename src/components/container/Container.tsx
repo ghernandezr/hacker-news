@@ -1,8 +1,14 @@
 import React from "react";
 import styles from "./Container.module.css";
 
-const Container: React.FC<React.PropsWithChildren> = ({ children }) => {
-  return <div className={styles.container}>{children}</div>;
+interface ContainerProps extends React.ComponentPropsWithoutRef<"div"> {}
+
+const Container = ({ children, ...rest }: ContainerProps) => {
+  return (
+    <div className={styles.container} {...rest}>
+      {children}
+    </div>
+  );
 };
 
 export default Container;

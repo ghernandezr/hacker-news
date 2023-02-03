@@ -4,6 +4,7 @@
   align-items: center;
   margin: 4.375rem auto;
   max-width: 14rem;
+  padding: 0;
 }
 
 .menu__item {
