@@ -5,10 +5,10 @@ import { useSearchNewsParams } from "../store/store";
 import styles from "./Faves.module.css";
 const Faves = () => {
   const faves = useSearchNewsParams((state) => state.faves);
-  const removeFromFaves = useSearchNewsParams((state) => state.removeFromFaves);
+  const removeFaves = useSearchNewsParams((state) => state.removeFaves);
 
   const handleFavesClick = (post: Post) => {
-    removeFromFaves(post.id);
+    removeFaves(post.id);
   };
 
   const generatePostItems = () => {
