@@ -15,15 +15,15 @@ import { useSearchNewsParams } from "../store/store";
 const News = () => {
   const { data, fetchNextPage, hasNextPage } = useSearchByDate();
   const posts = useProcessPost(data ? data.pages : []);
-  const setFaves = useSearchNewsParams((state) => state.setFaves);
-  const removeFromFaves = useSearchNewsParams((state) => state.removeFromFaves);
+  const addFaves = useSearchNewsParams((state) => state.addFaves);
+  const removeFaves = useSearchNewsParams((state) => state.removeFaves);
 
   const handleFavesClick = (post: Post) => {
     if (post.isFaves) {
-      setFaves(post);
+      addFaves(post);
       return;
     }
-    removeFromFaves(post.id);
+    removeFaves(post.id);
   };
 
   const generatePostItems = () => {
