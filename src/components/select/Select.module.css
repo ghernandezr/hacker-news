@@ -28,6 +28,14 @@
   gap: 0.813rem;
 }
 
+.select__option-no-item {
+  font-family: Roboto;
+  font-size: 0.875rem;
+  padding: 10px;
+  display: block;
+  color: #666;
+}
+
 .select__option-selected-icon {
   width: 0.875rem;
   height: 0.875rem;

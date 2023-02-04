@@ -51,7 +51,11 @@ const Select = (props: SelectProps) => {
 
   const generateItems = () => {
     if (items.length === 0) {
-      return <small>No items to show</small>;
+      return (
+        <small className={styles["select__option-no-item"]}>
+          No items to show
+        </small>
+      );
     }
 
     return items.map((item, index) => {
