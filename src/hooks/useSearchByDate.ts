@@ -6,6 +6,7 @@ export const useSearchByDate = () => {
   const query = useSearchNewsParams((state) => state.query);
 
   return useInfiniteQuery({
+    keepPreviousData: true,
     queryKey: ["searchByDate", query],
     queryFn: ({ pageParam = 0 }) => {
       return searchNewsByDate(query, pageParam);
