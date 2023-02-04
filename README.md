@@ -2,6 +2,12 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Technology Stack
+
+- [Tank Stack](https://tanstack.com/query/v4/?from=reactQueryV3&original=https://react-query-v3.tanstack.com/)
+- [Luxon](https://github.com/moment/luxon)
+- [Zustand](https://github.com/pmndrs/zustand)
+
 ## Available Scripts
 
 In the project directory, you can run:
