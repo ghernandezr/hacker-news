@@ -1,9 +1,12 @@
-import React, { ReactNode, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import ClickAwayListener from "react-click-away-listener";
 
 import styles from "./Select.module.css";
 
 import ArrowIcon from "./components/ArrowIcon";
+import SelectOptionItem from "./components/SelectOptionItem";
+import SelectOptionData from "./components/SelectOptionData";
+import { useSelectOpen } from "./hooks/useSelectOpen";
 
 export interface OptionItem {
   label: string;
@@ -26,7 +29,7 @@ const Select = (props: SelectProps) => {
     value,
   } = props;
 
-  const [isOpen, setIsOpen] = useState(false);
+  const { isOpen, setIsOpen, toggling } = useSelectOpen();
 
   const [selectedOption, setSelectedOption] =
     useState<OptionItem | undefined>(value);
@@ -34,8 +37,6 @@ const Select = (props: SelectProps) => {
   useEffect(() => {
     setSelectedOption(value);
   }, [value]);
-
-  const toggling = () => setIsOpen(!isOpen);
 
   const onOptionClicked = (value: OptionItem) => {
     setSelectedOption(value);
@@ -63,15 +64,12 @@ const Select = (props: SelectProps) => {
 
     return items.map((item, index) => {
       return (
-        <li
+        <SelectOptionItem
           key={index}
           data-testid="option-item"
-          className={styles["select__option-item"]}
+          item={item}
           onClick={() => onOptionClicked(item)}
-        >
-          <img src={item.image} alt={item.label} />
-          <div>{item.label}</div>
-        </li>
+        />
       );
     });
   };
@@ -85,15 +83,9 @@ const Select = (props: SelectProps) => {
           onClick={toggling}
         >
           <div className={styles["select__option-selected-value"]}>
-            {selectedOption && (
-              <div className={styles["select__option-selected-data"]}>
-                {selectedOption.image && (
-                  <img src={selectedOption.image} alt={selectedOption.label} />
-                )}
-                {selectedOption.image && <div>{selectedOption.label}</div>}
-              </div>
-            )}
-            {!selectedOption && (
+            {selectedOption ? (
+              <SelectOptionData item={selectedOption} />
+            ) : (
               <div data-testid="placeholder">{placeholder}</div>
             )}
           </div>
