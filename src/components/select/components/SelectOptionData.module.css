@@ -1,0 +1,5 @@
+.select__option-selected-data {
+  display: flex;
+  align-items: center;
+  gap: 0.813rem;
+}

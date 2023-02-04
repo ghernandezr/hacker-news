@@ -22,7 +22,6 @@ const PostCard = (props: PostCardProps) => {
     e.stopPropagation();
     e.preventDefault();
     setIsFaves(!isFaves);
-    // TODO: Search how to configure Babel + Storybook to accept the ? opperator
     if (onFavesClick) {
       onFavesClick({ ...post, isFaves: !isFaves });
     }
