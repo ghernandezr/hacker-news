@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, fireEvent, waitFor } from "@testing-library/react";
 import PostCard from "./PostCard";
 import Post from "../../model/Post";
 
@@ -12,37 +12,69 @@ const post: Post = {
   createdAt: "2023-02-03T01:36:40.000Z",
 };
 
-test("renders PostCard component to have time icon", () => {
-  const { getByTestId } = render(<PostCard post={post} />);
+describe("PostCard", () => {
+  test("displays post details and has a button to mark as favorite", () => {
+    const { getByTestId, queryByTestId } = render(<PostCard post={post} />);
 
-  const TimeIcon = getByTestId("time-icon");
-  expect(TimeIcon).toBeInTheDocument();
-});
+    const TimeIcon = getByTestId("time-icon");
+    expect(TimeIcon).toBeInTheDocument();
 
-test("renders PostCard component to not have filled icon", () => {
-  const { queryByTestId } = render(<PostCard post={post} />);
+    const FilledIcon = queryByTestId("filled-icon");
+    expect(FilledIcon).not.toBeInTheDocument();
 
-  const FilledIcon = queryByTestId("filled-icon");
-  expect(FilledIcon).not.toBeInTheDocument();
-});
+    const EmptyIcon = getByTestId("empty-icon");
+    expect(EmptyIcon).toBeInTheDocument();
 
-test("renders PostCard component to have empty icon", () => {
-  const { getByTestId } = render(<PostCard post={post} />);
+    const PostInfo = getByTestId("post-info");
+    expect(PostInfo.innerHTML).toContain(`by ${post.author}`);
 
-  const EmptyIcon = getByTestId("empty-icon");
-  expect(EmptyIcon).toBeInTheDocument();
-});
+    const PostTitle = getByTestId("post-title");
+    expect(PostTitle.innerHTML).toContain(post.storyTitle);
+  });
 
-test("renders PostCard component to have the author info", () => {
-  const { getByTestId } = render(<PostCard post={post} />);
+  test("mark the post as favorite", () => {
+    const { getByTestId, queryByTestId } = render(<PostCard post={post} />);
 
-  const PostInfo = getByTestId("post-info");
-  expect(PostInfo.innerHTML).toContain(`by ${post.author}`);
-});
+    //Get the empty icon button
+    const EmptyIcon = getByTestId("empty-icon");
+    expect(EmptyIcon).toBeInTheDocument();
 
-test("renders PostCard component to have the post title info", () => {
-  const { getByTestId } = render(<PostCard post={post} />);
+    //Fire click on EmptyIcon to mark as favorite
+    fireEvent.click(EmptyIcon);
 
-  const PostTitle = getByTestId("post-title");
-  expect(PostTitle.innerHTML).toContain(post.storyTitle);
+    //Check if FilledIcon appears
+    const FilledIcon = queryByTestId("filled-icon");
+    expect(FilledIcon).toBeInTheDocument();
+
+    //Check that the EmptyIcon hidde
+    expect(EmptyIcon).not.toBeInTheDocument();
+  });
+
+  test("remove the post from favorite", async () => {
+    const { queryByTestId } = render(<PostCard post={post} />);
+
+    //Get the empty icon button
+    let EmptyIcon = queryByTestId("empty-icon");
+    expect(EmptyIcon).toBeInTheDocument();
+
+    //Fire click on EmptyIcon to mark as favorite
+    fireEvent.click(EmptyIcon!);
+
+    //Check if FilledIcon appears
+    const FilledIcon = queryByTestId("filled-icon");
+    expect(FilledIcon).toBeInTheDocument();
+
+    //Check that the EmptyIcon hidde
+    expect(EmptyIcon).not.toBeInTheDocument();
+
+    //Fire click on FilledIcon to remove as favorite
+    fireEvent.click(FilledIcon!);
+
+    //Check if the buttons switch correctly
+    expect(FilledIcon).not.toBeInTheDocument();
+
+    //Check that EmptyIcon is present
+    EmptyIcon = queryByTestId("empty-icon");
+    expect(EmptyIcon).toBeInTheDocument();
+  });
 });
