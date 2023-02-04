@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Technology Stack
 
-- [Tank Stack](https://tanstack.com/query/v4/?from=reactQueryV3&original=https://react-query-v3.tanstack.com/)
+- [Tan Stack](https://tanstack.com/query/v4/?from=reactQueryV3&original=https://react-query-v3.tanstack.com/)
 - [Luxon](https://github.com/moment/luxon)
 - [Zustand](https://github.com/pmndrs/zustand)
 
@@ -34,6 +34,10 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run storybook`
+
+Launches the storybook component explorer.\
 
 ### `npm run eject`
 
