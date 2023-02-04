@@ -52,7 +52,10 @@ const Select = (props: SelectProps) => {
   const generateItems = () => {
     if (items.length === 0) {
       return (
-        <small className={styles["select__option-no-item"]}>
+        <small
+          data-testid="no-items"
+          className={styles["select__option-no-item"]}
+        >
           No items to show
         </small>
       );
@@ -62,6 +65,7 @@ const Select = (props: SelectProps) => {
       return (
         <li
           key={index}
+          data-testid="option-item"
           className={styles["select__option-item"]}
           onClick={() => onOptionClicked(item)}
         >
@@ -75,7 +79,11 @@ const Select = (props: SelectProps) => {
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
       <div className={styles.select}>
-        <div className={styles["select__option-selected"]} onClick={toggling}>
+        <div
+          data-testid="selected-value"
+          className={styles["select__option-selected"]}
+          onClick={toggling}
+        >
           <div className={styles["select__option-selected-value"]}>
             {selectedOption && (
               <div className={styles["select__option-selected-data"]}>
@@ -85,13 +93,20 @@ const Select = (props: SelectProps) => {
                 {selectedOption.image && <div>{selectedOption.label}</div>}
               </div>
             )}
-            {!selectedOption && <div>{placeholder}</div>}
+            {!selectedOption && (
+              <div data-testid="placeholder">{placeholder}</div>
+            )}
           </div>
           <ArrowIcon className={styles["select__option-selected-icon"]} />
         </div>
         {isOpen && (
           <div className={styles["select__option-container"]}>
-            <ul className={styles["select__option-list"]}>{generateItems()}</ul>
+            <ul
+              data-testid="option-container"
+              className={styles["select__option-list"]}
+            >
+              {generateItems()}
+            </ul>
           </div>
         )}
       </div>
