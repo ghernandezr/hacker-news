@@ -10,3 +10,9 @@
     gap: 1.87rem 2.5rem;
   }
 }
+
+.faves__no-data {
+  font-family: Roboto;
+  text-align: center;
+  color: #666;
+}
