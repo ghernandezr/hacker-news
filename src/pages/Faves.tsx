@@ -19,6 +19,12 @@ const Faves = () => {
     });
   };
 
+  if (faves.length === 0) {
+    return (
+      <p className={styles["faves__no-data"]}>You have no favorites selected</p>
+    );
+  }
+
   return <div className={styles.faves}>{generatePostItems()}</div>;
 };
 
